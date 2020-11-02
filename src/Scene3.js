@@ -29,7 +29,14 @@ function Title({ layers, label = "", color = 0xffffff, ...props }) {
 
   return (
     <group {...props} ref={group}>
-      <Text castShadow name={label} depthTest={false} material-toneMapped={false} {...textProps} layers={layers}>
+      <Text
+        castShadow
+        name={label}
+        depthTest={false}
+        material-toneMapped={false}
+        {...textProps}
+        layers={layers}
+      >
         {label}
         <meshBasicMaterial color={color} />
       </Text>
@@ -46,7 +53,13 @@ function TitleCopies({ layers, label, color, ...props }) {
   return (
     <group name="titleCopies" {...props}>
       {vertices.map((vertex, i) => (
-        <Title name={"titleCopy-" + i} label={label} position={vertex} layers={layers} color={color} />
+        <Title
+          name={"titleCopy-" + i}
+          label={label}
+          position={vertex}
+          layers={layers}
+          color={color}
+        />
       ))}
     </group>
   );
@@ -80,7 +93,14 @@ function Mirror({ sideMaterial, reflectionMaterial, ...props }) {
       onClick={() => api.applyImpulse([0, 0, -50], [0, 0, 0])}
       receiveShadow
       castShadow
-      material={[sideMaterial, sideMaterial, sideMaterial, sideMaterial, reflectionMaterial, sideMaterial]}
+      material={[
+        sideMaterial,
+        sideMaterial,
+        sideMaterial,
+        sideMaterial,
+        reflectionMaterial,
+        sideMaterial,
+      ]}
     />
   );
 }
@@ -164,8 +184,19 @@ export default function Scene() {
           args={[0.1, 100, renderTarget]}
         />
 
-        <Title name="title" label="AFROTECHIES" position={[0, 2, -10]} color={PEDRO_COLOR} />
-        <TitleCopies position={[0, 2, -5]} rotation={[0, 0, 0]} layers={[11]} label="PEDRO" color={PEDRO_COLOR} />
+        <Title
+          name="title"
+          label="AFROTECHIES"
+          position={[0, 2, -10]}
+          color={PEDRO_COLOR}
+        />
+        <TitleCopies
+          position={[0, 2, -5]}
+          rotation={[0, 0, 0]}
+          layers={[11]}
+          label="PEDRO"
+          color={PEDRO_COLOR}
+        />
 
         <Title
           layers={[11]}
@@ -178,7 +209,10 @@ export default function Scene() {
 
         <Physics gravity={[0, -10, 0]}>
           <Mirrors envMap={renderTarget.texture} />
-          <PhysicalWalls rotation={[-Math.PI / 2, 0, 0]} position={[0, -2, 0]} />
+          <PhysicalWalls
+            rotation={[-Math.PI / 2, 0, 0]}
+            position={[0, -2, 0]}
+          />
           <PhysicalTitle args={[13, 2.5, 0.1]} position={[0, 2.25, -10]} />
         </Physics>
       </group>
