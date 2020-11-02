@@ -1,7 +1,7 @@
 {
-  "name": "use-r3f-assets",
-  "homepage": "Tutorials/Mirrors",
-  "version": "1.0.0",
+  "name": "afro-techies",
+  "version": "0.1.0",
+  "private": true,
   "description": "",
   "keywords": [],
   "main": "src/index.js",
