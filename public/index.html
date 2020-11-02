@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Awesome Mirror Effect | Codrops</title>
+    <title>Afrotechies</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="Codrops" />
@@ -17,19 +17,12 @@
         return (
           (t.innerHTML = "root: { --tmp-var: bold; }"),
           document.head.appendChild(t),
-          (e = !!(
-            window.CSS &&
-            window.CSS.supports &&
-            window.CSS.supports("font-weight", "var(--tmp-var)")
-          )),
+          (e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)"))),
           t.parentNode.removeChild(t),
           e
         );
       };
-      supportsCssVars() ||
-        alert(
-          "Please view this demo in a modern browser that supports CSS Variables."
-        );
+      supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
     </script>
     <!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
   </head>
